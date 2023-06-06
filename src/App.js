@@ -1,13 +1,14 @@
 import React from 'react';
-import OrderTable from './OrderTable';
+import Orders from './Orders';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <h1>Order Management System</h1>
-      <OrderTable />
+      <Orders />
     </div>
   );
 };
 
 export default App;
+
