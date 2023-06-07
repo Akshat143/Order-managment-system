@@ -18,6 +18,7 @@ const Orders = () => {
         "https://631945908e51a64d2be10770.mockapi.io/api/v1/allOrders"
       );
       const data = await response.json();
+      // console.log(data);
       setOrders(data);
       setFilteredOrders(data);
     } catch (error) {
@@ -39,13 +40,11 @@ const Orders = () => {
       setDeleteOrderId(null);
 
       await fetch(
-        `https://631945908e51a64d2be10770.mockapi.io/api/v1/allOrders/${deleteOrderId}`,
+        `https://631945908e51a64d2be10770.mockapi.io/api/v1/allOrders/${deleteOrderId}`, 
         {
           method: "DELETE",
         }
       );
-
-      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -57,13 +56,14 @@ const Orders = () => {
 
   const filterOrders = () => {
     if (searchTerm === "") {
-      setErrorMessage("Enter Order ID to display data");
+      setErrorMessage("Enter Order ID!");
       setFilteredOrders([]);
       return;
     }
 
     const filtered = orders.filter((order) =>
       order.id.toLowerCase().includes(searchTerm.toLowerCase())
+
     );
 
     if (filtered.length === 0) {
@@ -72,6 +72,7 @@ const Orders = () => {
       setErrorMessage("");
     }
 
+    setFilteredOrders([]);
     setFilteredOrders(filtered);
   };
 
@@ -97,7 +98,6 @@ const Orders = () => {
         </div>
       </div>
       <div className="order-details">
-        {/* <h2>Order Details</h2> */}
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <table>
@@ -113,8 +113,9 @@ const Orders = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredOrders.map((order) => (
-              <tr key={order.id} className="table-row">
+            {/* {console.log(filteredOrders)} */}
+            {filteredOrders.map((order,index) => (
+              <tr key={index} className="table-row">
                 <td>{order.id}</td>
                 <td>{order.orderDescription}</td>
                 <td>
@@ -138,17 +139,18 @@ const Orders = () => {
                 <td>
                   {deleteOrderId === order.id ? (
                     <>
-                      <span>
-                        Are you sure you want to delete?
-                      </span>
+                      <span>Are you sure you want to delete?</span>
                       <p></p>
                       &nbsp;<button onClick={confirmDelete}>Yes</button>
                       &nbsp;<button onClick={cancelDelete}>No</button>
                     </>
                   ) : (
-                  <button className="delete-button" onClick={() => handleDelete(order.id)}>
-                    Delete
-                  </button>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDelete(order.id)}
+                    >
+                      Delete
+                    </button>
                   )}
                 </td>
               </tr>
