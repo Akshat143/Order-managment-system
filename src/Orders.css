@@ -1,0 +1,89 @@
+.orders-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .delete-button {
+    color: red;
+    background-color: transparent;
+    border: 1px solid red;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .order-details {
+    margin-top: 20px;
+  }
+  
+  .order-details p {
+    margin-bottom: 10px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input {
+    margin-right: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table-heading {
+    background-color: #f2f2f2;
+    text-align: center; /* Center-align the table heading */
+  }
+  
+  .table-row {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+    text-align: center; /* Center-align the table data */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  td.order-description {
+    text-align: left;
+  }
+  
+  th:first-child,
+  td:first-child {
+    border-left: 1px solid #ddd;
+  }
+  
+  th:last-child,
+  td:last-child {
+    border-right: 1px solid #ddd;
+  }
+  
+  .table-row:last-child td {
+    border-bottom: none;
+  }
+
+  .table-row td:last-child {
+    width: 250px;
+    text-align: center;
+  }
+  
